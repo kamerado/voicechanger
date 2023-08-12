@@ -37,10 +37,11 @@ def main():
     window = sg.Window('Select audio device', layout1, finalize=True)
     while True:             # Event Loop
         event, values = window.Read()
-        output = str(finddevices())
-        print(output)
         if event == sg.WIN_CLOSED:
             break
+        if event == "-SEARCH-":
+            output = str(finddevices())
+            print(output)
         if event == "-SELECT-":
             voice_window(values["-DEVICE-"])
         if event == 'Exit':
